@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/list}">Back to list</a>
+<h1>CREATE NEW EMPLOYEE</h1>
+<th:block th:if="${message}">
+  <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create}" th:object="${employee}" method="post">
+  <input name="id" type="hidden" th:field="*{id}">
+  <p>Name</p>
+  <input type="text" th:field="*{name}">
+  <p>Age</p>
+  <input type="text" th:field="*{age}">
+  <p>Salary</p>
+  <input type="text" th:field="*{salary}">
+  <input type="submit" th:value="Create">
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><a th:href="@{/list}">Back to list</a>
+<h1>DELETE EMPLOYEE! ARE YOUR SURE?</h1>
+<!--<form th:action="@{/delete}" th:object="${blog}" method="post">-->
+<form action="/delete" method="post">
+    <input name="id" type="hidden" th:value="${employee.id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${employee.name}"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td th:text="${employee.age}"></td>
+        </tr>
+        <tr>
+            <td>Salary:</td>
+            <td th:text="${employee.salary}"></td>
+        </tr>
+        <tr>
+            <td>Branch:</td>
+            <td th:text="${employee.branch != null ? employee.branch.name : ''}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete Employee"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

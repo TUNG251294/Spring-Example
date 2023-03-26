@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/create}">Create new Employee</a>
+<h1>SORTED EMPLOYEE LIST</h1>
+<!--<form>-->
+<!--  Search by author:-->
+<!--  <input name="search" type="text"/>-->
+<!--  <input type="submit" value="Search"/>-->
+<!--</form>-->
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Branch</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tr th:each="e : ${employees}">
+        <td th:text="${e.id}"></td>
+        <td>
+            <a th:href="@{/info/{id}(id=${e.id})}" th:text="${e.name}"></a>
+        </td>
+        <td th:text="${e.age}"></td>
+        <td th:text="${e.salary}"></td>
+        <td th:text="${e.branch != null ? e.branch.name : ''}"></td>
+        <td>
+            <a th:href="@{/update/__${e.id}__}" th:text="update"></a>
+        </td>
+        <td>
+            <a th:href="@{/delete/__${e.id}__}" th:text="delete"></a>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>
